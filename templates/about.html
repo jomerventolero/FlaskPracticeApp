@@ -1,11 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|PT+Sans" rel="stylesheet">
 
-  <head>
-    
-  </head>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    {{ url_for('static', filename='main.css')}}
+    {{ url_for('static', filename='header.css')}}
+    <title>About</title>
 
-  <body>
+</head>
+<body>
+    <header>
+        <div class="header_wrapper">
+                <div class="logo">
+                        <h2>Arthur</h2>
+                    </div>
+                    <div class="header_content">
+                        <a href={{ url_for('/') }}>Home</a>
+                        <a href="porforlio.html">Portfolio</a>
+                        <a href="about.html">About</a>
+                </div>
+        </div>
+    </header>
+    <!--ETO PINAKA KATAWAN NG PAGE MO-->
+    <main>
 
-  </body>
-
+         <!--ETO YUNG CONTENT 2 PALITAN MO NALANG MGA NAKALAGAY-->
+        <div class="content_2">
+            <center>
+                <div class="bio_btn">
+                    <a href="https://www.facebook.com/Arthur-and-his-Boeings-7x7-395349707711238/?modal=admin_todo_tour">Arthur</a>
+                </div>
+            </center>
+        </div>
+    </main>
+    <!--ETO YUNG FOOTER PALITAN MO NALANG MGA NAKALAGAY-->
+    <footer><h3>©Arthur2019 - This is my personal website</h3></footer>
+</body>
 </html>

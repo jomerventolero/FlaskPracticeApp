@@ -8,8 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|PT+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    {{ url_for('static', filename='main.css')}}
+    {{ url_for('static', filename='header.css')}}
     <title>Discover Arthur & his Boeing's</title>
 
 </head>
@@ -20,9 +22,9 @@
                         <h2>Attendance</h2>
                 </div>
                     <div class="header_content">
-                        <a href="homepage.html">Home</a>
+                        <a href={{ url_for('homepage') }}>Home</a>
                         <a href="porforlio.html">Portfolio</a>
-                        <a href="about.html">About</a>
+                        <a href={{ url_for('about') }}>About</a>
                     </div>
 
         </div>

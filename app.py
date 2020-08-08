@@ -14,14 +14,13 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-@app.route('/')
-def index():
+@app.route('/homepage')
+def homepage():
     return render_template("homepage.html")
 
 @app.route('/about')
 def about():
     return render_template("about.html")
-
 
 
 if __name__ == '__main__':
