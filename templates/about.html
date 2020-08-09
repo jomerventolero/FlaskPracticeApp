@@ -7,10 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|PT+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    {{ url_for('static', filename='main.css')}}
-    {{ url_for('static', filename='header.css')}}
+    <link rel="stylesheet" href={{ url_for('static', filename='header.css')}}>
+    <link rel="stylesheet" href={{ url_for('static', filename='main.css')}}>
+
     <title>About</title>
 
 </head>
@@ -40,6 +39,6 @@
         </div>
     </main>
     <!--ETO YUNG FOOTER PALITAN MO NALANG MGA NAKALAGAY-->
-    <footer><h3>©Arthur2019 - This is my personal website</h3></footer>
+    <footer><h3>©TODO APP</h3></footer>
 </body>
 </html>
