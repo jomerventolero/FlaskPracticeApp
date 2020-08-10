@@ -7,7 +7,7 @@
 
 '''
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -28,15 +28,44 @@ class Todo(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def homepage():
-    return render_template("tasks.html")
+    if request.method == 'POST':
+        task_content = request.form['content']
+        new_task = Todo(content=task_content)
+        try:
+            db.session.add(new_task)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an issue adding your task'
+    else:
+        tasks = Todo.query.order_by(Todo.date_created).all()
+        return render_template("tasks.html", tasks=tasks)
 
-@app.route('/porfolio')
-def porfolio():
-    return render_template("porfolio.html")
+@app.route('/delete/<int:id>')
+def delete(id):
+    task_to_delete = Todo.query.get_or_404(id)
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+    try:
+        db.session.delete(task_to_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return 'Error deleting task'
+
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    task = Todo.query.get_or_404(id)
+    if request.method == 'POST':
+        task.content = request.form['content']
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'Error updating comtent'
+    else:
+        return render_template('update.html', task=task)
+
+
 
 
 if __name__ == '__main__':
