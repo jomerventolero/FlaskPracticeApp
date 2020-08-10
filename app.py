@@ -66,7 +66,5 @@ def update(id):
         return render_template('update.html', task=task)
 
 
-
-
 if __name__ == '__main__':
     app.run(debug=True)
