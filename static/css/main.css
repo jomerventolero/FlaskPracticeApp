@@ -1,5 +1,4 @@
 body{
-    background-color: black;
     padding: 0;
     margin: 0;
 }
@@ -8,6 +7,30 @@ body{
     box-sizing: border-box;
   }
 
+.content {
+  margin: 0 auto;
+  width: 400px;
+}
+
+table, td, th {
+  border: 1px solid #aaa;
+
+}
+
+table {
+  align-self: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 30px;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+}
 
 #banner{
     background-color: black;

@@ -13,8 +13,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
@@ -28,9 +26,13 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
-@app.route('/homepage')
+@app.route('/', methods=['POST', 'GET'])
 def homepage():
-    return render_template("homepage.html")
+    return render_template("tasks.html")
+
+@app.route('/porfolio')
+def porfolio():
+    return render_template("porfolio.html")
 
 @app.route('/about')
 def about():
